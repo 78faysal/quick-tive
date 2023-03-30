@@ -1,3 +1,15 @@
+.home {
+  display: flex;
+  padding: 0%;
+}
+
+@media screen and (max-width: 640px) {
+  .home {
+    flex-wrap: wrap;
+  }
+}
+
+
 .App {
   text-align: center;
 }

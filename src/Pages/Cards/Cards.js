@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import AccountInfo from '../AccountInfo/AccountInfo';
 import Card from '../Card/Card';
 
 const Cards = () => {
@@ -12,16 +13,19 @@ const Cards = () => {
     }, [])
 
     return (
-        <div>
-            <div className=" md:w-1/3 lg:w-1/3 p-4">
-                {
-                    allData.map(data => <Card
-                        key={data.id}
-                        data={data}
-                    ></Card>)
-                }
+        <div className='p-10'>
+            <h2 className='text-4xl font-bold text-blue-700'>Quick-tive</h2>
+            <div>
+                <h2 className='text-2xl py-4'>Select todays exercise</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 container mx-auto">
+                    {
+                        allData.map(data => <Card
+                            key={data.id}
+                            data={data}
+                        ></Card>)
+                    }
+                </div>
             </div>
-            <h2>this is cards</h2>
         </div>
     );
 };

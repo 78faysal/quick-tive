@@ -15,8 +15,8 @@ const Card = (props) => {
                     <p className="text-gray-700 text-base mb-4">Details: {details}</p>
                     <p className="text-gray-600 text-sm">Age: {age}</p>
                     <p className="text-gray-600 text-sm">Time: {time}</p>
-                    <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Button
+                    <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
+                        Add to list
                     </button>
                 </div>
             </div>
