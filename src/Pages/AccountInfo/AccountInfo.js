@@ -1,7 +1,12 @@
 import React from 'react';
 import profileImg from "../../Photos/profile.jpg";
 
-const AccountInfo = () => {
+const AccountInfo = (props) => {
+    const [cartDatas] = props.cartData;
+    console.log(cartDatas);
+
+    // cartDatas.map((cartData) => console.log(cartData))
+
     return (
         <div className='bg-white mx-auto'>
             <div className='p-4'>
@@ -39,13 +44,14 @@ const AccountInfo = () => {
                 <br />
                 <div>
                     <h2 className='text-1xl font-bold rounded-lg p-2 text-gray-700'>Exercise Details</h2>
-                    <div class="flex items-center p-2 mb-4 rounded-lg bg-gray-200">
-                        <label className="font-bold text-gray-700" for="username">Exercise Time:</label>
-                        <input className="py-2 px-3 w-24 bg-gray-200 w-75" type="text" readonly />
+                    <div className="flex items-center p-2 mb-4 rounded-lg bg-gray-200">
+                        <label className="font-bold text-gray-700" >Exercise Time:</label>
+
+                        <input  className="py-2 px-3 w-24 bg-gray-200 w-75" type="text" readOnly />
                     </div>
-                    <div class="flex items-center p-2 rounded-lg mb-4 bg-gray-200">
-                        <label className="font-bold text-gray-700" for="username">Break Time:</label>
-                        <input className="py-2 px-3 w-24 bg-gray-200" type="text"  />
+                    <div className="flex items-center p-2 rounded-lg mb-4 bg-gray-200">
+                        <label className="font-bold text-gray-700" >Break Time:</label>
+                        <input className="py-2 px-3 w-24 bg-gray-200" type="text" />
                     </div>
                 </div>
                 <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
