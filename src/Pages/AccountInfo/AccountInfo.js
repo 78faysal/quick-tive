@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import profileImg from "../../Photos/profile.jpg";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const AccountInfo = (props) => {
     const myDatas = props.cartData;
@@ -21,6 +23,11 @@ const AccountInfo = (props) => {
         setPValue(event.target.innerText);
     }
 
+
+    // react toast 
+    const handleBtnClick = () => {
+        toast('Congrats! You did it 💪');
+    };
 
     return (
         <div className='bg-white mx-auto'>
@@ -49,11 +56,11 @@ const AccountInfo = (props) => {
                 <div>
                     <h2 className='text-1xl font-bold p-2 text-gray-700'>Add a Break (s)</h2>
                     <div className='bg-gray-200 rounded-lg flex gap-4 p-3'>
-                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>10</p>
-                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>20</p>
-                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>30</p>
-                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>40</p>
-                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>50</p>
+                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>10s</p>
+                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>20s</p>
+                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>30s</p>
+                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>40s</p>
+                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>50s</p>
                     </div>
                 </div>
                 <br />
@@ -66,12 +73,13 @@ const AccountInfo = (props) => {
                     </div>
                     <div className="flex items-center p-2 rounded-lg mb-4 bg-gray-200">
                         <label className="font-bold text-gray-700" >Break Time:</label>
-                        <input className="py-2 px-3 w-24 bg-gray-200" type="text" value={`${pValue}s`} />
+                        <input className="py-2 px-3 w-24 bg-gray-200" type="text" value={`${pValue}`} />
                     </div>
                 </div>
-                <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
-                    Completed
+                <button onClick={handleBtnClick} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
+                   Activity Completed
                 </button>
+                <ToastContainer />
             </div>
 
         </div>
