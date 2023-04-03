@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import profileImg from "../../Photos/profile.jpg";
 
 const AccountInfo = (props) => {
@@ -7,11 +7,20 @@ const AccountInfo = (props) => {
 
     let sum = 0;
 
-    for(let i = 0; i < myDatas.length; i++) {
+    for (let i = 0; i < myDatas.length; i++) {
         sum += myDatas[i];
         // console.log(sum);
     }
-    
+
+
+    // add break code 
+    const [pValue, setPValue] = useState('');
+
+    const handleClick = (event) => {
+        console.log(event.target.innerText);
+        setPValue(event.target.innerText);
+    }
+
 
     return (
         <div className='bg-white mx-auto'>
@@ -38,13 +47,13 @@ const AccountInfo = (props) => {
                     </div>
                 </div>
                 <div>
-                    <h2 className='text-1xl font-bold p-2 text-gray-700'>Add a Break</h2>
+                    <h2 className='text-1xl font-bold p-2 text-gray-700'>Add a Break (s)</h2>
                     <div className='bg-gray-200 rounded-lg flex gap-4 p-3'>
-                        <p className='bg-white rounded-full p-2'>10s</p>
-                        <p className='bg-white rounded-full p-2'>20s</p>
-                        <p className='bg-white rounded-full p-2'>30s</p>
-                        <p className='bg-white rounded-full p-2'>40s</p>
-                        <p className='bg-white rounded-full p-2'>50s</p>
+                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>10</p>
+                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>20</p>
+                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>30</p>
+                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>40</p>
+                        <p onClick={handleClick} className='bg-white rounded-full p-2 hover:bg-blue-500'>50</p>
                     </div>
                 </div>
                 <br />
@@ -53,11 +62,11 @@ const AccountInfo = (props) => {
                     <div className="flex items-center p-2 mb-4 rounded-lg bg-gray-200">
                         <label className="font-bold text-gray-700" >Exercise Time:</label>
 
-                        <input  className="py-2 px-3 w-24 bg-gray-200 w-75" type="text" value={sum} readOnly />
+                        <input className="py-2 px-3 w-24 bg-gray-200 w-75" type="text" value={`${sum}s`} readOnly />
                     </div>
                     <div className="flex items-center p-2 rounded-lg mb-4 bg-gray-200">
                         <label className="font-bold text-gray-700" >Break Time:</label>
-                        <input className="py-2 px-3 w-24 bg-gray-200" type="text" />
+                        <input className="py-2 px-3 w-24 bg-gray-200" type="text" value={`${pValue}s`} />
                     </div>
                 </div>
                 <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
