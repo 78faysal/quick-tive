@@ -7,7 +7,7 @@ import { MyContext } from '../../App';
 const Card = ({ handleAddToCart, data }) => {
 
     const { img, title, details, age, time } = data;
-    const { cartData, handleBtnClick } = useContext(MyContext);
+    const { handleBtnClick } = useContext(MyContext);
 
 
 

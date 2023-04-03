@@ -2,10 +2,9 @@ import React from 'react';
 import profileImg from "../../Photos/profile.jpg";
 
 const AccountInfo = (props) => {
-    const [cartDatas] = props.cartData;
-    console.log(cartDatas);
-
-    // cartDatas.map((cartData) => console.log(cartData))
+    const myDatas = props.cartData;
+    // console.log(myData);
+    myDatas.map((myData) => console.log(myData))
 
     return (
         <div className='bg-white mx-auto'>
@@ -47,7 +46,7 @@ const AccountInfo = (props) => {
                     <div className="flex items-center p-2 mb-4 rounded-lg bg-gray-200">
                         <label className="font-bold text-gray-700" >Exercise Time:</label>
 
-                        <input  className="py-2 px-3 w-24 bg-gray-200 w-75" type="text" readOnly />
+                        <input  className="py-2 px-3 w-24 bg-gray-200 w-75" type="text" value={props.cartData} readOnly />
                     </div>
                     <div className="flex items-center p-2 rounded-lg mb-4 bg-gray-200">
                         <label className="font-bold text-gray-700" >Break Time:</label>
