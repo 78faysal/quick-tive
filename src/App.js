@@ -14,12 +14,12 @@ function App() {
   const [selectedData, setSelectedData] = useState([]);
 
   const handleBtnClick = (data) => {
-    console.log(data)
+    // console.log(data)
     setCartData((prevCartData) => [...prevCartData, data]);
   };
 
   useEffect(() => {
-    console.log(cartDatas)
+    // console.log(cartDatas)
     setSelectedData(cartDatas)
   }, [cartDatas])
 

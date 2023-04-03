@@ -3,8 +3,15 @@ import profileImg from "../../Photos/profile.jpg";
 
 const AccountInfo = (props) => {
     const myDatas = props.cartData;
-    // console.log(myData);
-    myDatas.map((myData) => console.log(myData))
+    // console.log(myDatas.length);
+
+    let sum = 0;
+
+    for(let i = 0; i < myDatas.length; i++) {
+        sum += myDatas[i];
+        // console.log(sum);
+    }
+    
 
     return (
         <div className='bg-white mx-auto'>
@@ -46,7 +53,7 @@ const AccountInfo = (props) => {
                     <div className="flex items-center p-2 mb-4 rounded-lg bg-gray-200">
                         <label className="font-bold text-gray-700" >Exercise Time:</label>
 
-                        <input  className="py-2 px-3 w-24 bg-gray-200 w-75" type="text" value={props.cartData} readOnly />
+                        <input  className="py-2 px-3 w-24 bg-gray-200 w-75" type="text" value={sum} readOnly />
                     </div>
                     <div className="flex items-center p-2 rounded-lg mb-4 bg-gray-200">
                         <label className="font-bold text-gray-700" >Break Time:</label>
