@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import profileImg from "../../Photos/profile.jpg";
 import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import 'react-toastify/dist/ReactToastify.css';
 
 const AccountInfo = (props) => {
+
+    // exercise time 
     const myDatas = props.cartData;
-    // console.log(myDatas.length);
 
     let sum = 0;
 
@@ -17,10 +18,18 @@ const AccountInfo = (props) => {
 
     // add break code 
     const [pValue, setPValue] = useState('');
+    const [text, setText] = useState("");
+
+    useEffect(() => {
+        const localStorageText = localStorage.getItem("pValue");
+        if (localStorageText) {
+            setText(localStorageText);
+        }
+    }, []);
 
     const handleClick = (event) => {
-        console.log(event.target.innerText);
         setPValue(event.target.innerText);
+        localStorage.setItem('pValue', event.target.innerText);
     }
 
 
@@ -73,11 +82,11 @@ const AccountInfo = (props) => {
                     </div>
                     <div className="flex items-center p-2 rounded-lg mb-4 bg-gray-200">
                         <label className="font-bold text-gray-700" >Break Time:</label>
-                        <input className="py-2 px-3 w-24 bg-gray-200" type="text" value={`${pValue}`} />
+                        <input className="py-2 px-3 w-24 bg-gray-200" type="text" value={`${text}`} />
                     </div>
                 </div>
                 <button onClick={handleBtnClick} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
-                   Activity Completed
+                    Activity Completed
                 </button>
                 <ToastContainer />
             </div>
